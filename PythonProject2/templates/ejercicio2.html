@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio de Sesión</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ejercicio2.css') }}">
+
+</head>
+<body>
+  <div class="container">
+    <h1>Incio de Sesión</h1>
+    <form action="/ejercicio2" method="POST">
+      <label for="usuario">Ingresa tu nombre</label>
+      <input type="text" id="usuario" name="usuario" required>
+      <br><br>
+      <label for="contraseña">Ingresa tu contraseña</label>
+      <input type="password" id="contraseña" name="contraseña" required>
+      <br><br>
+      <button type="submit">Verificar</button>
+    </form>
+    {% if mensaje %}
+    <div class="mensaje">
+      {% if mensaje == 'ADMINISTRADOR' %}
+      <p>Bienvenido administrador juan</p>
+      {% elif mensaje == 'USUARIO' %}
+      <p>Bienvenido usuario pepe</p>
+      {% else %}
+      <p>Usuario o contraseña incorrectos</p>
+      {% endif %}
+    </div>
+    {% endif %}
+
+  </div>
+</body>
+</html>
